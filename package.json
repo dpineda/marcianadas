@@ -1,0 +1,21 @@
+{
+  "name": "marcianadas-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "dpineda",
+  "contributors": [
+    { "name" : "Lucho"
+    , "email" : ""
+    , "url" : ""}
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "node-cron": "^1.1.3",
+    "request": "^2.81.0"
+  }
+}
