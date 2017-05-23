@@ -3,10 +3,9 @@ var feed = require("feed-read");
 var request = require("request");
 var intervalId;
 
-cron.schedule('*/2 * * * *', function(){
-  console.log('running a task every two minutes');
-  //intervalId = setInterval(Yastan, 20000);
-  sendSlack("ignore.com")
+cron.schedule('00 30 11 * * 5', function(){
+  // Runs every Friday at 11:30:00 AM.
+  intervalId = setInterval(Yastan, 20000);
 });
 
 function Yastan () {
@@ -24,9 +23,8 @@ function Yastan () {
 
         if(yastan) {
             var msg = "Yastan!!! :) -> " + link;
-            //console.log(msg);            
             clearInterval(intervalId);            
-            //sendSlack(link);          
+            sendSlack(link);          
         } 
         else console.log((new Date()).toISOString()+ "  -  tobia nostan :(");
     });
