@@ -1,17 +1,17 @@
 var cron = require('node-cron');
 var feed = require("feed-read");
 var request = require("request");
+var intervalId;
 
 cron.schedule('*/2 * * * *', function(){
   console.log('running a task every two minutes');
-  Yastan();
+  //intervalId = setInterval(Yastan, 20000);
+  sendSlack("ignore.com")
 });
-
-//var intervalId = setInterval(Yastan, 20000);
 
 function Yastan () {
     feed("http://marcianosmx.com/feed/", function(err, articles) {
-    if (err) throw err;
+        if (err) throw err;
         var link;
         var yastan =  false;
         
@@ -38,7 +38,7 @@ var sendSlack =  function(link) {
     + " ..... enjoy fap fap fap :herbalife: ";
 
     var options = {
-        uri: '',
+        uri: process.env.SLACK_URL,
         method: 'POST',
         json: {"text": text }
     }
